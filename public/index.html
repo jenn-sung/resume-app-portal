@@ -1,5 +1,6 @@
 
 
+<!-- Begin Login Page -->
 <template id="login-page">
     <div id="vue-app">
     <a href="/#/signup">Signup</a>
@@ -9,7 +10,7 @@
     <router-view></router-view>
   </div>
 
-  
+
   <div class="vue-component">
 
     <div class="container">
@@ -30,8 +31,28 @@
 
   </div>
 
+</template>
+<!-- End of Login page -->
 
 
+<!-- Show Page -->
+<template id="my-resume-page">
+    <div id="vue-app">
+    <a href="/#/myresume">My Resume</a>
+    <a href="/#/login">Login</a>
 
+
+    <router-view></router-view>
+  </div>
+
+
+  <div class="vue-component">
+    <div v-for="resume in userResume"> 
+        {{ resume.first_name }}
+      
+    </div>
+      
+
+  </div>
 
 </template>

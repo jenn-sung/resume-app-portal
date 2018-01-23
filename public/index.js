@@ -1,4 +1,6 @@
+/* global Vue, VueRouter, axios */
 
+// Begin Login Page
 
 var LoginPage = {
   template: "#login-page",
@@ -35,8 +37,8 @@ var LoginPage = {
 
 var router = new VueRouter({
   routes: [
-    { path: "/", component: HomePage },
-    { path: "/signup", component: SignupPage },
+    // { path: "/", component: HomePage },
+    { path: "/myResume", component: MyResume },
     { path: "/login", component: LoginPage }
   ]
 });
@@ -51,3 +53,24 @@ var app = new Vue({
     }
   }
 });
+
+// End Login
+
+
+// Begin MyResume (SHOW) Page
+var MyResume = {
+  template: "#my-resume-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      userResume: []
+    };
+  },
+  created: function() {
+    axios.get('/students/show').then(function(response) {
+      this.userResume = response.data;
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
